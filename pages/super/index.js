@@ -3,12 +3,8 @@ import React, { useState } from 'react';
 import { FaHospitalAlt } from 'react-icons/fa';
 import { MdLocalHospital } from 'react-icons/md';
 import { BiSolidMessageDetail } from 'react-icons/bi';
-import { IoIosPeople } from 'react-icons/io';
-import { FaUserDoctor } from 'react-icons/fa6';
-import { AiOutlinePaperClip } from 'react-icons/ai';
-import { TfiMenuAlt } from 'react-icons/tfi';
 
-const Admin = () => {
+const SuperAdmin = () => {
     const [doctor, setDoctor] = useState('');
     const [dpassword, setDpassword] = useState('');
     const [demail, setDemail] = useState('');
@@ -60,7 +56,7 @@ const Admin = () => {
     return (
         <>
             <main className="container min-h-full my-8">
-                <h3 className="text-center font-bold text-3xl py-4">WELCOME [Hospital]</h3>
+                <h3 className="text-center font-bold text-3xl py-4">WELCOME BOSS</h3>
                 <section className="grid grid-cols-4 gap-4 my-8">
                     <div className="left">
                         <div className="relative overflow-x-auto rounded-md shadow-md">
@@ -81,7 +77,7 @@ const Admin = () => {
                                             scope="row"
                                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                         >
-                                            Doctor List
+                                            Hospital List
                                         </th>
                                     </tr>
                                     <tr className="bg-white border-b">
@@ -89,7 +85,7 @@ const Admin = () => {
                                             scope="row"
                                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                         >
-                                            Patient List
+                                            Add Hospital
                                         </th>
                                     </tr>
                                     <tr className="bg-white border-b">
@@ -97,34 +93,10 @@ const Admin = () => {
                                             scope="row"
                                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                                         >
-                                            Appointment Details
+                                            Delete Hospital
                                         </th>
                                     </tr>
-                                    <tr className="bg-white border-b ">
-                                        <th
-                                            scope="row"
-                                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                                        >
-                                            Prescription List
-                                        </th>
-                                    </tr>
-                                    <tr className="bg-white border-b ">
-                                        <th
-                                            scope="row"
-                                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                                        >
-                                            Add Doctor
-                                        </th>
-                                    </tr>
-                                    <tr className="bg-white border-b ">
-                                        <th
-                                            scope="row"
-                                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                                        >
-                                            Delete Doctor
-                                        </th>
-                                    </tr>
-                                    <tr className="bg-white border-b ">
+                                    <tr className="bg-white">
                                         <th
                                             scope="row"
                                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -136,51 +108,33 @@ const Admin = () => {
                             </table>
                         </div>
                     </div>
-                    <div className="right flex flex-col flex-wrap col-span-3 ml-40 space-y-8">
-                        <div className='flex flex-row gap-24'>
-                            <div className="flex flex-col justify-center items-center">
-                                <FaUserDoctor size={90} className="text-[#3832af]" />
-                                <span className="font-semibold text-xl">Doctor List</span>
-                                <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
-                                    View Doctors
-                                </Link>
-                            </div>
-                            <div className="flex flex-col justify-center items-center">
-                                <IoIosPeople size={90} className="text-[#3832af]" />
-                                <span className="font-semibold text-xl">Patients List</span>
-                                <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
-                                    View Patients
-                                </Link>
-                            </div>
-                            <div className="flex flex-col justify-center items-center">
-                                <AiOutlinePaperClip size={90} className="text-[#3832af]" />
-                                <span className="font-semibold text-xl">Appointment Details</span>
-                                <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
-                                    View Appointments
-                                </Link>
-                            </div>
+                    <div className="right flex flex-wrap col-span-3 gap-24 ml-40">
+                        <div className="flex flex-col justify-center items-center">
+                            <FaHospitalAlt size={50} className="text-[#3832af]" />
+                            <span className="font-semibold text-xl">Hospital List</span>
+                            <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
+                                View Hospitals
+                            </Link>
                         </div>
-                        <div className="flex flex-row gap-24 pl-16">
-                            <div className="flex flex-col justify-center items-center">
-                                <TfiMenuAlt size={90} className="text-[#3832af]" />
-                                <span className="font-semibold text-xl">Prescription Lists</span>
+                        <div className="flex flex-col justify-center items-center">
+                            <MdLocalHospital size={50} className="text-[#3832af]" />
+                            <span className="font-semibold text-xl">Manage Hospital</span>
+                            <span>
                                 <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
-                                    View Prescriptions
+                                    Add Hospitals
                                 </Link>
-                            </div>
-                            <div className="flex flex-col justify-center items-center">
-                                <MdLocalHospital size={90} className="text-[#3832af]" />
-                                <span className="font-semibold text-xl">Manage Doctors</span>
-                                <span>
-                                    <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
-                                        Add Doctors
-                                    </Link>
-                                    &nbsp;|&nbsp;
-                                    <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
-                                        Delete Doctors
-                                    </Link>
-                                </span>
-                            </div>
+                                &nbsp;|&nbsp;
+                                <Link href="/hospitallists" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
+                                    Delete Hospitals
+                                </Link>
+                            </span>
+                        </div>
+                        <div className="flex flex-col justify-center items-center">
+                            <BiSolidMessageDetail size={50} className="text-[#3832af]" />
+                            <span className="font-semibold text-xl">Query</span>
+                            <Link href="/queries" className="transition-all duration-500 hover:-translate-y-1 text-[#01c4fe]">
+                                View Queries
+                            </Link>
                         </div>
                     </div>
                 </section>
@@ -189,4 +143,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default SuperAdmin;
