@@ -24,6 +24,9 @@ module.exports = {
           xl: '1124px',
         },
       },
+      animation: {
+        'bounce-slow': 'bounce 3s infinite',
+      },
     },
   },
   plugins: [],
