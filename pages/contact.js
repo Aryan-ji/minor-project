@@ -34,7 +34,7 @@ const Contact = () => {
                 toast.error(error.msg);
                 return;
             }
-            const res = await fetch('/api/validate', {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
