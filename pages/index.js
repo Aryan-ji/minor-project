@@ -11,7 +11,7 @@ export default function Home() {
               welcome!
             </div>
           </div>
-          <div>I am right</div>
+          <div>I am right section</div>
         </section>
       </main>
     </>

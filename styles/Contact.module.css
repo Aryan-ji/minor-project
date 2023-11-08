@@ -1,0 +1,74 @@
+.mheader {
+    top: 0;
+    background-color: none;
+    position: relative;
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mheader::before {
+    content: "";
+    background: url("/contact-bg.png") no-repeat center center/cover;
+    position: absolute;
+    /* top: 4rem; */
+    top: 0;
+    left: 0px;
+    height: 475px;
+    /* margin-top: -125px; */
+    width: 100%;
+    z-index: -1;
+    opacity: 0.79;
+}
+
+.mheader::after {
+    content: "";
+    background: linear-gradient(180deg, #3832af 0%, #01c4fe 100%);
+    position: absolute;
+    /* top: 4.75rem; */
+    top: 0;
+    left: 0px;
+    height: 475px;
+    /* margin-top: -125px; */
+    width: 100%;
+    z-index: 0;
+    opacity: 0.70;
+}
+
+.mheader h2 {
+    font-size: 3rem;
+    text-align: center;
+    color: #000000;
+    font-weight: 700;
+    text-align: center;
+    z-index: 1;
+    text-transform: capitalize;
+    margin-top: 50%;
+    transform: translateY(75%);
+    position: relative;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem;
+    height: 100vh;
+    background: none;
+}
+
+.content h3 {
+
+    color: #000000;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 5rem;
+    z-index: 1;
+    text-transform: capitalize;
+}
