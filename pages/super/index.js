@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { FaHospitalAlt } from 'react-icons/fa';
 import { MdLocalHospital } from 'react-icons/md';
 import { BiSolidMessageDetail } from 'react-icons/bi';
+import { getSession, useSession } from "next-auth/react";
 
 const SuperAdmin = () => {
+    const { data: session, status } = useSession();
+    
     const [doctor, setDoctor] = useState('');
     const [dpassword, setDpassword] = useState('');
     const [demail, setDemail] = useState('');
@@ -144,3 +147,21 @@ const SuperAdmin = () => {
 };
 
 export default SuperAdmin;
+
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        };
+    }
+
+    return {
+        props: { session },
+    };
+}
