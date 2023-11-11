@@ -5,7 +5,7 @@ import Link from 'next/link'
 const PatientLogin = () => {
     return (
         <Layout>
-            <h2 className='mt-10 text-5xl'>Register as patient</h2>
+            <h2 className='mt-32 text-5xl text-center text-indigo-700 font-medium'>Register as patient</h2>
             <section className="grid grid-cols-2 w-full place-items-center mt-10 text-black">
                 <div className={`${styles.left} w-fit my-auto`}>
                     <input type="text" id='fname' name='fname' placeholder='First Name' />

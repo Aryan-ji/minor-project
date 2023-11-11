@@ -11,11 +11,24 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (router.pathname.startsWith('/admin')) {
+    const exemptedRoutes = ['/client/login', '/admin/login', '/super/login', '/client/register', '/admin/register', '/super/register', '/client/forgot-password', '/admin/forgot-password', '/super/forgot-password', '/client/reset-password', '/admin/reset-password', '/super/reset-password']
+    if (router.pathname.includes(exemptedRoutes)) {
+      setIsAdmin(false);
+      return;
+    }
+
+    else if (router.pathname.startsWith('/super')) {
       setIsAdmin(true);
-    } else {
+    }
+
+    else if (router.pathname.startsWith('/admin')) {
       setIsAdmin(false);
     }
+
+    else {
+      setIsAdmin(false);
+    }
+    console.log(router.pathname, "router.pathname");
   }, [router.pathname]);
 
   return (

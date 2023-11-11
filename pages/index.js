@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
-import { BsFillRocketFill } from 'react-icons/bs';
-import styles from '../styles/Home.module.css';
-import PatientLogin from '@/components/PatientLogin';
-import HospitalLogin from '@/components/HospitalLogin';
-import AdminLogin from '@/components/AdminLogin';
-export default function Home() {
-  const [focus, setFocus] = useState("patient")
+import React from 'react'
+import Layout from '@/layout/index'
+import styles from '@/styles/PatientLogin.module.css'
+import Link from 'next/link'
+const Home = () => {
   return (
-    <>
-      <main className="min-h-[100vh] bg-gradient-to-r from-[#3832af] to-[#01c4fe]">
-        <section className=" grid grid-cols-2 ">
-          <div className="container grid place-items-center text-white space-y-16 my-28">
-            <BsFillRocketFill size={300} className=' animate-bounce-slow' />
-            <div className='capitalize text-4xl font-bold text-left py-4 px-16'>
-              welcome!
-            </div>
+    <Layout>
+      <h2 className='mt-32 text-5xl text-center text-indigo-700 font-medium'>Register as patient</h2>
+      <section className="grid grid-cols-2 w-full place-items-center mt-10 text-black">
+        <div className={`${styles.left} w-fit my-auto`}>
+          <input type="text" id='fname' name='fname' placeholder='First Name' />
+          <input type="email" name="email" id="email" placeholder='Your Email' />
+          <input type="password" name="password" id="password" placeholder='Enter Your Password' />
+          <div className={`${styles.gender}`}>
+            <input type="radio" name="gender" id="male" /><label htmlFor='male'>male</label>
+            <input type="radio" name="gender" id="female" /><label htmlFor='female'>female</label>
           </div>
-          <div className='bg-white relative mr-4 rounded-l-[10rem]'>
-            <div className={`${styles.toggle} absolute rounded-full right-8 top-8  bg-indigo-500 w-[25rem] h-12 text-white`}>
-              <button onClick={() => setFocus("patient")}>Patient</button>
-              <button onClick={() => setFocus("hospital")}>Hospital</button>
-              <button onClick={() => setFocus("admin")}>Admin</button>
-
-            </div>
-            <div className="">
-              {focus === "patient" && <PatientLogin />}
-              {focus === "hospital" && <HospitalLogin />}
-              {focus === "admin" && <AdminLogin />}
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
+          <Link href='/client/login' className={`${styles.login} text-left w-fit text-indigo-500`}>
+            <span>Already have an account?</span>
+          </Link>
+        </div>
+        <div className={`${styles.right} w-full my-auto`}>
+          <input type="text" id='lname' name='lname' placeholder='Last Name' />
+          <input type="tel" name="phone" id="phone" placeholder='Your Phone' />
+          <input type="password" name="cpassword" id="cpassword" placeholder='Confirm Password' />
+          <input type="submit" value="Register Now" />
+        </div>
+      </section>
+    </Layout>
   )
 }
+
+export default Home
